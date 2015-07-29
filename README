@@ -1,0 +1,33 @@
+ECEN602 HOMEWORK 2
+Naga Raghavedra Anudeep Tungala 
+and JiajunYang
+
+Here is the README documents, includeing the architecture and the usage.
+
+##########################################################################################################################################
+
+
+ARCHITECTURE:
+
+Server: 
+The TFTP server program including three files, ServerMain.c, Structure.h and Functions.c. The Structure.h includes the data struct we used in the ServerMain.c and Functions.c. And the ServerMain.c includes the main function, using fork() to accept several clents at the same time. The Functions.c includes ReadFile(), SendData(), SendOtherData() used for the file which has more than 512 Bytes, Unpack() used to classify the packet from cilent, SendACK(), and SendERR().
+
+Main Function:
+The server main() can be found in the ServerMain.c.
+
+###########################################################################################################################################
+
+
+USAGE:
+
+There is a make file for compiling.
+
+Server:
+Using “make server” to compile the server.
+
+Otherwise, just using “make all” to compile both the server.
+
+The server should be launched as follows:
+<./server server_ip server_port>
+
+The client can read files from server for the file which is smaller than 32MB, due to the limit of TFTP. Additionally, the server can handle several clients at the same time using fork().
